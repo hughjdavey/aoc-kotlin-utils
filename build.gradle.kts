@@ -1,10 +1,11 @@
 plugins {
     kotlin("jvm") version "1.7.20"
     `java-library`
+    `maven-publish`
 }
 
 group = "xyz.hughjd"
-version = "0.0.1"
+version = "0.0.2"
 
 repositories {
     mavenCentral()
@@ -30,5 +31,13 @@ tasks.jar {
     manifest {
         attributes(mapOf("Implementation-Title" to project.name, "Implementation-Version" to project.version))
         writeTo(layout.buildDirectory.file("manifest.mf"))
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+        }
     }
 }
