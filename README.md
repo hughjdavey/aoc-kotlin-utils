@@ -4,20 +4,9 @@ Some utilities for my AOC solutions in Kotlin. Published under CC-0 so take what
 
 ### Use this library in your project
 
-You can put this library in your build easily via [JitPack](https://jitpack.io)
+You can put this library in your build easily via [JitPack](https://jitpack.io).
 
-For example in your `build.gradle`:
-
-```groovy
-repositories {
-    mavenCentral()
-    maven { url "https://jitpack.io" }
-}
-
-dependencies {
-     implementation 'com.github.hughjdavey:aoc-kotlin-utils:0.0.1'
-}
-```
+Browse versions and get Maven/Gradle instructions [here](https://jitpack.io/#xyz.hughjd/aoc-kotlin-utils).
 
 ### Build JARs
 
