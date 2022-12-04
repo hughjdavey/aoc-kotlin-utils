@@ -33,3 +33,11 @@ tasks.jar {
         writeTo(layout.buildDirectory.file("manifest.mf"))
     }
 }
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+        }
+    }
+}
