@@ -1,4 +1,6 @@
-import Lists.indicesOf
+package xyz.hughjd.aocutils
+
+import xyz.hughjd.aocutils.Lists.indicesOf
 
 object Strings {
 

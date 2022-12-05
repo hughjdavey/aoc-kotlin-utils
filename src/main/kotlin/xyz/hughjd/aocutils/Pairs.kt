@@ -1,3 +1,5 @@
+package xyz.hughjd.aocutils
+
 object Pairs {
 
     /**

@@ -1,4 +1,6 @@
-import Strings.indicesOf
+package xyz.hughjd.aocutils
+
+import xyz.hughjd.aocutils.Strings.indicesOf
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.contains
 import org.hamcrest.Matchers.empty
