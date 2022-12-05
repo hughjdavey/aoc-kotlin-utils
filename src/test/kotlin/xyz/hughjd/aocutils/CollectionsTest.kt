@@ -4,10 +4,12 @@ import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.contains
 import org.hamcrest.Matchers.empty
 import org.junit.jupiter.api.Test
-import xyz.hughjd.aocutils.Lists.indicesOf
-import xyz.hughjd.aocutils.Lists.split
+import xyz.hughjd.aocutils.Collections.indicesOf
+import xyz.hughjd.aocutils.Collections.split
+import xyz.hughjd.aocutils.Collections.stackOf
+import xyz.hughjd.aocutils.CustomMatchers.StackMatcher.Companion.popsElements
 
-class ListsTest {
+class CollectionsTest {
 
     @Test
     fun testIndicesOf() {
@@ -27,5 +29,12 @@ class ListsTest {
         assertThat(listOf(1, 2, 3, 4, 5, 6).split { i -> i % 2 == 0 }, contains(listOf(1), listOf(3), listOf(5)))
         assertThat(listOf(1, 2, 3, 4, 5, 6).split { i -> i % 2 == 1 }, contains(listOf(2), listOf(4), listOf(6)))
         assertThat(listOf("part", "one", "", "part", "two", null, "part", "three").split { s -> s.isNullOrEmpty() }, contains(listOf("part", "one"), listOf("part", "two"), listOf("part", "three")))
+    }
+
+    @Test
+    fun testStackOf() {
+        assertThat(stackOf<Int>(), empty())
+        assertThat(stackOf(1, 2, 3), popsElements(1, 2, 3))
+        assertThat(stackOf(listOf(1, 2, 3)), popsElements(1, 2, 3))
     }
 }

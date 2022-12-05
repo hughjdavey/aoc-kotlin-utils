@@ -1,6 +1,8 @@
 package xyz.hughjd.aocutils
 
-object Lists {
+import java.util.Stack
+
+object Collections {
 
     /**
      * Returns all indices where the specified element occurs in the list, or an empty list if the specified element is not contained in the list
@@ -46,5 +48,22 @@ object Lists {
      */
     fun <T> List<T>.split(t: T): List<List<T>> {
         return this.split { t2 -> t2 == t }
+    }
+
+
+    /**
+     * Returns a stack containing the elements of the input list, the first element being at the top of the stack
+     */
+    fun <T> stackOf(input: List<T>): Stack<T> {
+        val stack = Stack<T>()
+        input.reversed().forEach { stack.push(it) }
+        return stack
+    }
+
+    /**
+     * Returns a stack containing the input elements, the first element being at the top of the stack
+     */
+    fun <T> stackOf(vararg input: T): Stack<T> {
+        return stackOf(input.toList())
     }
 }

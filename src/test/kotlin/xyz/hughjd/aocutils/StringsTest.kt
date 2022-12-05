@@ -1,10 +1,10 @@
 package xyz.hughjd.aocutils
 
-import xyz.hughjd.aocutils.Strings.indicesOf
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.contains
 import org.hamcrest.Matchers.empty
 import org.junit.jupiter.api.Test
+import xyz.hughjd.aocutils.Strings.indicesOf
 
 class StringsTest {
 

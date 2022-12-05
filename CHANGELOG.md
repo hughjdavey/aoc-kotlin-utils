@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.4 (05/12/2022)
+
+* Add some utils from previous years and some others
+* Rename Pairs to Tuples and Lists to Collections due to new utils
+
 ## 0.0.3 (05/12/2022)
 
 * Add List split utils and tests
