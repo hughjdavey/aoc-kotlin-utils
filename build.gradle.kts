@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "xyz.hughjd"
-version = "0.0.4"
+version = "0.0.5"
 
 repositories {
     mavenCentral()
@@ -21,7 +21,6 @@ java {
     withJavadocJar()
     withSourcesJar()
 }
-
 
 tasks.test {
     useJUnitPlatform()

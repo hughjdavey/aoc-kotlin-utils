@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test
 import xyz.hughjd.aocutils.Collections.indicesOf
 import xyz.hughjd.aocutils.Collections.split
 import xyz.hughjd.aocutils.Collections.stackOf
+import xyz.hughjd.aocutils.Collections.takeWhileInclusive
 import xyz.hughjd.aocutils.CustomMatchers.StackMatcher.Companion.popsElements
 
 class CollectionsTest {
@@ -36,5 +37,15 @@ class CollectionsTest {
         assertThat(stackOf<Int>(), empty())
         assertThat(stackOf(1, 2, 3), popsElements(1, 2, 3))
         assertThat(stackOf(listOf(1, 2, 3)), popsElements(1, 2, 3))
+    }
+
+    @Test
+    fun testTakeWhileInclusive() {
+        assertThat(listOf(1, 2, 3, 4, 5).takeWhile { it < 4 }, contains(1, 2, 3))
+        assertThat(listOf(1, 2, 3, 4, 5).takeWhileInclusive { it < 4 }, contains(1, 2, 3, 4))
+        assertThat(listOf(1, 2, 3, 4, 4, 4, 5).takeWhileInclusive { it < 4 }, contains(1, 2, 3, 4))
+        assertThat(generateSequence(1) { it + 1 }.takeWhile { it < 4 }.toList(), contains(1, 2, 3))
+        assertThat(generateSequence(1) { it + 1 }.takeWhileInclusive { it < 4 }.toList(), contains(1, 2, 3, 4))
+        assertThat(generateSequence(1) { it + 1 }.takeWhileInclusive { it < 4 }.toList(), contains(1, 2, 3, 4))
     }
 }

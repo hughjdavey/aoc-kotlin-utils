@@ -50,7 +50,6 @@ object Collections {
         return this.split { t2 -> t2 == t }
     }
 
-
     /**
      * Returns a stack containing the elements of the input list, the first element being at the top of the stack
      */
@@ -65,5 +64,37 @@ object Collections {
      */
     fun <T> stackOf(vararg input: T): Stack<T> {
         return stackOf(input.toList())
+    }
+
+    /**
+     * Inclusive version of `takeWhile`, returning the first elements satisfying the given predicate plus the first element that doesn’t
+     *
+     * @see Iterable.takeWhile
+     *
+     * All credit to [this blog post](https://jivimberg.io/blog/2018/06/02/implementing-takewhileinclusive-in-kotlin)
+     */
+    inline fun <T> Iterable<T>.takeWhileInclusive(predicate: (T) -> Boolean): List<T> {
+        var shouldContinue = true
+        return takeWhile {
+            val result = shouldContinue
+            shouldContinue = predicate(it)
+            result
+        }
+    }
+
+    /**
+     * Inclusive version of `takeWhile`, returning the first elements satisfying the given predicate plus the first element that doesn’t
+     *
+     * @see Sequence.takeWhile
+     *
+     * All credit to [this blog post](https://jivimberg.io/blog/2018/06/02/implementing-takewhileinclusive-in-kotlin)
+     */
+    inline fun <T> Sequence<T>.takeWhileInclusive(crossinline predicate: (T) -> Boolean): Sequence<T> {
+        var shouldContinue = true
+        return takeWhile {
+            val result = shouldContinue
+            shouldContinue = predicate(it)
+            result
+        }
     }
 }

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.5 (08/12/2022)
+
+* Add takeWhileInclusive methods to Collections
+
 ## 0.0.4 (05/12/2022)
 
 * Add some utils from previous years and some others
